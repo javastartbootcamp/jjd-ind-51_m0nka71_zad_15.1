@@ -8,7 +8,7 @@ public class PlayerOperations {
     static void savePlayers(List<Player> players) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("stats.csv"))) {
             for (Player player : players) {
-                writer.write(String.valueOf(player));
+                writer.write(player.toString());
                 writer.newLine();
             }
         } catch (IOException e) {

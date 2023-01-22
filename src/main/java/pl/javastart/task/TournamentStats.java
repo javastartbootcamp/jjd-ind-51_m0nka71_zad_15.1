@@ -13,14 +13,14 @@ public class TournamentStats {
     private static final int SORT_FROM_LOWEST = 1;
 
     void run(Scanner scanner) {
-        boolean readNext = true;
-        List<Player> players = createPlayersList(scanner, readNext);
+        List<Player> players = createPlayersList(scanner);
         sortWithGivenParameter(scanner, players);
         PlayerOperations.savePlayers(players);
     }
 
-    private static List<Player> createPlayersList(Scanner scanner, boolean readNext) {
+    private static List<Player> createPlayersList(Scanner scanner) {
         List<Player> players = new ArrayList<>();
+        boolean readNext = true;
         do {
             System.out.println("Podaj wynik kolejnego gracza (lub stop):");
             String userInput = scanner.nextLine();
@@ -37,7 +37,7 @@ public class TournamentStats {
         return players;
     }
 
-    public List<Player> sortWithGivenParameter(Scanner scanner, List<Player> players) {
+    public void sortWithGivenParameter(Scanner scanner, List<Player> players) {
         System.out.println("Po jakim parametrze posortować? (1 - imię, 2 - nazwisko, 3 - wynik)");
         int firstUserChoice = scanner.nextInt();
         Comparator<Player> comparator = switch (firstUserChoice) {
@@ -54,6 +54,5 @@ public class TournamentStats {
             comparator = comparator.reversed();
             players.sort(comparator);
         }
-        return players;
     }
 }
