@@ -1,4 +1,6 @@
-package pl.javastart.task;
+package pl.javastart.task.comparators;
+
+import pl.javastart.task.Player;
 
 import java.util.Comparator;
 

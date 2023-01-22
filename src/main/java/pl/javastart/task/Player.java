@@ -36,6 +36,11 @@ public class Player implements Comparable<Player> {
     }
 
     @Override
+    public String toString() {
+        return firstName + " " + lastName + ";" + result;
+    }
+
+    @Override
     public int compareTo(Player player) {
         return 0;
     }
